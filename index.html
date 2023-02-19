@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mengz Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @font-face {
+            font-family: BostonSMBold;
+            src: url(/src/boston-semi-bold.otf);
+        }
+        @font-face {
+            font-family: BostonReg;
+            src: url(/src/BostonRegular.otf);
+        }
+        @font-face {
+            font-family: BostonLight;
+            src: url(/src/BostonLight.otf);
+        }
+        @font-face {
+            font-family: GothamBlack;
+            src: url(/src/GothamBlackRegular.ttf);
+        }
+        body {
+            min-height: 100vh;
+            margin: 0 auto;
+        }
+        .navbar{
+            position:fixed;
+            z-index:1;
+            top:0;
+
+            overflow:hidden;
+            padding-left: 10px;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            float:left;
+            width:100%;
+            height: 30px;
+            border:none;
+            display:block;
+            outline:0;
+            white-space:normal;
+
+            color:#fff!important;
+            background-color:#000!important;
+            font-family: "GothamBlack";
+        }
+        a:link { text-decoration: none; }
+        .navbar-button{
+            margin: auto 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .proj-row, .profile-row{
+            display: flex;
+            height: 300px;
+            flex-direction: row;
+        }
+        .socials-row{
+            display: flex;
+            height: 600px;
+            flex-direction: column
+        }
+        .profile-row{
+            margin-top:55px;
+        }
+        .left-text{
+            flex: 60%;
+            padding: 25px 50px;
+            text-align: justify;
+            color: #fff;
+            background-color: rgb(19, 19, 19);
+            font-family: "Roboto", sans-serif;
+        }
+
+        .left-text > h2, .upper-text > h2{
+            font-family: GothamBlack;
+        }
+
+        .upper-text > h2{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .left-text > p, .upper-text > p{
+            font-family: BostonReg;
+        }
+
+        .upper-text{
+            vertical-align:middle;
+            height: 20%;
+            padding: 0px 50px;
+            text-align: center;
+            color: #fff;
+            background-color: rgb(19, 19, 19);
+            font-family: "Roboto", sans-serif;
+        }
+
+        .block-pic{
+            padding-right: 50px;
+            flex: 40%;
+            background-color: rgb(19, 19, 19);
+        }
+        .block-image{
+            display: block;
+            float: right;
+            height: 100%;
+            width: auto;
+            max-height: 300px;
+        }
+
+        .socials-container{
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            padding: 50px 50px;
+            background-image: url(/src/computer-bg.png);
+            background-position: center;
+        }
+        .socials-opaque{
+            background-color: rgba(0, 0, 0, 0.419);
+        }
+        .socials-container > .social-box-left, .social-box-mid, .social-box-right{
+            height: 350px;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: rgb(26, 26, 26);
+        }
+
+        .social-box-pic{
+            height: 60%;
+        }
+
+        .social-box-image{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            
+            height: auto;
+            width: 100%;
+        }
+
+        .socials-text{
+            margin: 25px 60px;
+            text-align: center;
+        }
+
+        .socials-text > h3{
+            font-family: "BostonSMBold";
+            color: #fff;
+        }
+
+        .socials-text > p{
+            font-family: "BostonLight";
+            color: rgb(215, 215, 215);
+        }
+
+        .button{
+            width: 150px;
+            height: 50px;
+            display: block;
+            margin-top: 40px;
+            background-color: rgb(34, 34, 34);
+            color: rgb(255, 255, 255);
+            border: 3px solid rgba(255, 255, 255, 0.704);
+            text-align: center;
+        }
+
+        .button >p{
+            margin-top: 10%;
+            font-family: BostonSMBold;
+        }
+
+        .section-separator{
+            display: flex;
+            height: 50px;
+            background-color: rgb(19, 19, 19);
+        }
+        .section-line{
+            width: 75%;
+            height: 1px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.177);
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .footer{
+            height:75px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding-top: 40px;
+        }
+        .footer-link{
+            margin-left: 20px;
+            margin-right: 20px;
+            color: #fff;
+            font-family: "BostonLight";
+        }
+
+        @media (max-width:1920px){
+            .socials-row{
+                height: 600px;
+            }
+            .upper-text{
+                height: 20%;
+            }
+        }
+
+        @media (max-width: 1313px){
+            .socials-row{
+                height: 1050px;
+            }
+            .upper-text{
+                height: 15%;
+            }
+            .block-pic{
+                padding-right: 0;
+            }
+        }
+        @media (max-width: 1200px){
+            .proj-row, .profile-row{
+                height: 600px;
+                flex-direction: column-reverse;
+            }
+            .block-pic{
+                background-image: url(/src/profile_picture_blur.png);
+                background-position: center;
+                padding-right: 0px;
+            }
+
+            .proj-row > .block-pic{
+                background-image: url(/src/csm_project_blur.png);
+            }
+
+            .block-image{
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .proj-row, .profile-row{
+                height: 650px;
+            }
+            .social-box{
+                margin: 20px 0px;
+            }
+            .socials-row{
+                height: 1050px;
+            }
+        }
+        @media(max-width: 914px){
+            .socials-row{
+                height: 1600px;
+            }
+            .upper-text{
+                height: 5%;
+            }
+        }
+        @media (max-width: 550px) {
+            .block-image{
+                width: 100%;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar" align="center">
+        <a href="#profile" class="navbar-button"><b>Profile</b></a>
+        <a href="#skills" class="navbar-button"><b>Skills</b></a>
+        <a href="#projects" class="navbar-button"><b>Projects</b></a>
+    </div>
+    <br id="profile">
+    <div class="profile-row">
+        <div class="left-text">
+            <h2>ABOUT ME</h2>
+            <p>Nama saya adalah Muhammad Rafi Insan Fillah, mahasiswa Teknik Informatika ITS.
+                Memiliki ketertarikan terhadap teknologi dan <i>computer science</i>.
+                Terbuka dengan perubahan dan perkembangan ilmu yang berkaitan dengan teknologi
+                dan sains. Aktif berkarya mengimplementasikan skill yang dimiliki dengan membuat
+                konten video dan <i>programming project</i>.
+            </p>
+            
+            <a href="https://www.linkedin.com/in/rafi-fillah" class="button">
+                <p>Detail</p>
+            </a>
+        </div> 
+        <div class="block-pic">
+            <img class="block-image" src="/src/profile_picture.png" alt="avatar" >
+        </div>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <div id="skills" class="socials-row">
+        <div class="upper-text">
+            <h2>RELATED SKILLS</h2>
+        </div>
+        <div class="socials-container" style="background-image: url(/src/mac-bg.png);">
+            <div class="social-box-left" style="box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.613);">
+                <div class="social-box-pic" style="background-color: #0e0e0e;">
+                    <img class="social-box-image" src="/src/content_wide_light.png">
+                </div>
+                <div class="socials-text">
+                    <h3>Content Processing</h3>
+                    <p>Experienced in content editing and processing especially video content</p>
+                </div>
+            </div>
+            <div class="social-box-left" style="box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.613);">
+                <div class="social-box-pic" style="background-color: #0e0e0e;">
+                    <img class="social-box-image" src="/src/programming_wide.png">
+                </div>
+                <div class="socials-text">
+                    <h3>Programming</h3>
+                    <p>Active in problem solving by coding, web design and game project</p>
+                </div>
+            </div>
+            <div class="social-box-left" style="box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.613);">
+                <div class="social-box-pic" style="background-color: #0e0e0e;">
+                    <img class="social-box-image" src="/src/office.png">
+                </div>
+                <div class="socials-text">
+                    <h3>Office Software</h3>
+                    <p>Capable of using standard office software</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="proj-row">
+        <div class="left-text">
+            <h2>CODING PROJECT</h2>
+            <p><b>Chainsaw Man: Zombie Devil Ambush</b> merupakan game pixel 2D dengan latar
+                parodi serial Chainsaw Man chapter pertama. Karakter utama kita, Chainsaw Man,
+                bersama dengan iblis anjing gergaji peliharaannya terperangkap di dalam sebuah
+                gudang dan harus bertahan hidup dari serangan zombie yang tiada habisnya.
+                Game ini dirancang dengan language java dan dapat dimainkan dengan IDE Eclipse. 
+            </p>
+            <a href="https://github.com/Mengz04/PBO_KELOMPOK6_FP" class="button">
+                <p>Detail</p>
+            </a>
+        </div>
+        <div class="block-pic">
+            <img class="block-image" src="/src/csm_project.png" alt="csm_project" >
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://www.instagram.com/rafi_fillah/" class="footer-link">instagram</a>
+        <a href="https://www.linkedin.com/in/rafi-fillah" class="footer-link">linkedIn</a>
+        <a href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=m.rafiinsan@gmail.com" class="footer-link">Email</a>
+    </div>
+</body>
+</html>
